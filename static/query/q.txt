@@ -1,0 +1,22 @@
+query MyQuery {
+  allWcProducts {
+    nodes {
+      name
+      price
+      sku
+      slug
+      status
+      type
+      stock_status
+      sold_individually
+      featured
+      images {
+        name
+        src
+        alt
+      }
+      id
+    }
+    totalCount
+  }
+}

@@ -1,0 +1,28 @@
+query MyQuery {
+  allWcProducts(
+    filter: {categories: {elemMatch: {id: {eq: "a47366e6-817d-5f06-a6d1-30d6cf05437c"}}}}
+  ) {
+    totalCount
+    nodes {
+      name
+      price
+      sku
+      slug
+      status
+      type
+      stock_status
+      sold_individually
+      images {
+        name
+        src
+        alt
+      }
+      id
+      featured
+      categories {
+        name
+        id
+      }
+    }
+  }
+}

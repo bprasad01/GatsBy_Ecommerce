@@ -1,0 +1,19 @@
+query MyQuery {
+  allWcProductsCategories {
+    nodes {
+      id
+      slug
+      name
+      image {
+        src
+        name
+        id
+        alt
+      }
+      description
+      count
+      display
+    }
+    totalCount
+  }
+}

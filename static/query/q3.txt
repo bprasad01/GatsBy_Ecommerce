@@ -1,0 +1,26 @@
+query MyQuery {
+  allWcProducts(
+    filter: {featured: {eq: true}}
+    limit: 6
+    sort: {order: ASC, fields: wordpress_parent___wordpress_parent___date_created}
+  ) {
+    nodes {
+      name
+      price
+      sku
+      slug
+      status
+      type
+      stock_status
+      sold_individually
+      images {
+        name
+        src
+        alt
+      }
+      id
+      featured
+    }
+    totalCount
+  }
+}
