@@ -19,22 +19,15 @@ const BottomHeader = () => {
 						<div className="mainmenu pull-left">
 							<ul className="nav navbar-nav collapse navbar-collapse">
 								<li><Link to="/" className="active">Home</Link></li>
-								<li className="dropdown"><Link to="/">Shop<i className="fa fa-angle-down"></i></Link>
+								<li className="dropdown"><Link to="/shop">Shop<i className="fa fa-angle-down"></i></Link>
                                     <ul role="menu" className="sub-menu">
                                         <li><Link to="/shop">Products</Link></li>
-										<li><Link to="/">Product Details</Link></li> 
 										<li><Link to="/">Checkout</Link></li> 
 										<li><Link to="/">Cart</Link></li> 
-										<li><Link to="/">Login</Link></li> 
+										
                                     </ul>
                                 </li> 
-								<li className="dropdown"><Link to="/">Blog<i className="fa fa-angle-down"></i></Link>
-                                    <ul role="menu" className="sub-menu">
-                                        <li><Link to="/">Blog List</Link></li>
-										<li><Link to="/">Blog Single</Link></li>
-                                    </ul>
-                                </li> 
-								<li><Link to="/">404</Link></li>
+								<li><Link to="/blogs">Blog</Link></li>
 								<li><Link to="/contact">Contact</Link></li>
 							</ul>
 						</div>

@@ -1,31 +1,45 @@
-// const path = require("path")
-// // const slugify = require("slugify")
-// exports.createPages = async ({ graphql, actions }) => {
-//   const { createPage } = actions
+const path = require("path")
+const slugify = require("slugify")
 
-//   const result = await graphql(`
-//   query GetCategory {
-//     allWcProducts {
-//       nodes {
-//         categories {
-//           name
-//         }
-//       }
-//     }
-//   }
-//   `)
+exports.onCreateNode = ({node, actions}) => {
+    const { createNodeField } = actions
+    if(node.internal.type === 'wcProduct' ){
+        const slugFromSlug = slugify(node.posts.slug)
+        createNodeField({
+            node,
+            name : 'slug',
+            value : slugFromSlug
+        })
+    }
+}
 
-//   result.data.allWcProducts.nodes.forEach(product => {
-//     product.categories.forEach(category => {
-//         createPage({
-//             path : `/${category}`,
-//             component : path.resolve(`src/templates/category-template.js`),
-//             context : {
-//                 category : category
-//             }
-//         })
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+    
+  const singlePostTemplate = path.resolve(`src/templates/single-post.js`)
 
-//     })
-//   })
+  const result = await graphql(`
+  query GetSingleBlogPost {
+    wpgraphql {
+      posts {
+        nodes {
+          title
+          slug
+        }
+      }
+    }
+  }
+  `)
 
-// }
+  result.data.wpgraphql.posts.nodes.forEach(blog => {
+    createPage({
+        path : blog.slug,
+        component : singlePostTemplate,
+        context : {
+            // passing slug for template to use get post
+            slug : blog.slug
+        }
+    })
+  })
+
+}

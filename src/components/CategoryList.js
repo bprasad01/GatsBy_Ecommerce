@@ -1,5 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
+import defaultDiscountImg from '../Assests/images/home/shipping.jpg'
 
 const CategoryList = () => {
   return (
@@ -114,7 +115,7 @@ const CategoryList = () => {
         </div>
         
         <div className="shipping text-center">
-            <img src="images/home/shipping.jpg" alt="" />
+            <img src={defaultDiscountImg} />
         </div>
         
     </div>
