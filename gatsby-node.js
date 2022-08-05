@@ -26,7 +26,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
     
   const singlePostTemplate = path.resolve(`src/templates/single-post.js`)
-  const postList = path.resolve(`src/templates/post-list.js`)
 
   const result = await graphql(`
   query GetSingleBlogPost {
@@ -54,23 +53,4 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  const blogsPerPage = 2
-  const numberOfPages = Math.ceil(blogs.length / blogsPerPage)
-
-  Array.from({ length : numberOfPages }.forEach((_, index) => {
-    const isFirstPage = index === 0
-    const currentPage = index + 1
-
-    if(isFirstPage) return
-
-    createPage({
-        path : `/page/${currentPage}`,
-        component : postList,
-        context : {
-            limit : blogsPerPage,
-            skip : index * blogsPerPage,
-            currentPage
-        }
-    })
-  }))
 }
