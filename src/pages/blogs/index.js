@@ -1,7 +1,7 @@
-import { graphql, useStaticQuery } from 'gatsby'
-import React from 'react'
-import Layout from '../../components/Layout'
-import Posts from '../../components/Posts'
+import { graphql, useStaticQuery } from "gatsby"
+import React from "react"
+import Layout from "../../components/Layout"
+import Posts from "../../components/Posts"
 
 const query = graphql`
   query {
@@ -34,19 +34,17 @@ const query = graphql`
 `
 
 const Blogs = () => {
-const data = useStaticQuery(query)
-const blogs = data.wpgraphql.posts.nodes
+  const data = useStaticQuery(query)
+  const blogs = data.wpgraphql.posts.nodes
   return (
     <>
-    <Layout>
+      <Layout>
         <section>
-            <Posts blogs={blogs}/>    
+          <Posts blogs={blogs} />
         </section>
-    </Layout>
+      </Layout>
     </>
   )
 }
-
-
 
 export default Blogs

@@ -4,10 +4,13 @@ import Layout from "../components/Layout"
 import { Link } from "gatsby"
 import FeaturedItems from "./home/featuredItems"
 import RecomendedItems from "../components/RecomendedItems"
+import BannerCarousel from "./home/bannerCarousel"
+
 export default function Home() {
   return (
     <Layout>
       <>
+      <BannerCarousel />
         <section>
           <div className="container">
             <div className="row">

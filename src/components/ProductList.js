@@ -18,31 +18,28 @@ const ProductList = ({ products = [] }) => {
                     <img src={image ? image : defaultImg} alt="Product" />
                     <h2>${price ? price : 56}</h2>
                     <p>{name}</p>
-                    <a href="#" className="btn btn-default add-to-cart">
+                    <Link to="#" className="btn btn-default add-to-cart">
                       <i className="fa fa-shopping-cart"></i>Add to cart
-                    </a>
+                    </Link>
                   </div>
                   <div className="product-overlay">
                     <div className="overlay-content">
                       <h2>${price ? price : 56}</h2>
                       <p>{name}</p>
-                      <a href="#" className="btn btn-default add-to-cart">
+                      <Link to="#" className="btn btn-default add-to-cart">
                         <i className="fa fa-shopping-cart"></i>Add to cart
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
                 <div className="choose">
                   <ul className="nav nav-pills nav-justified">
                     <li>
-                      <a href="">
+                      <Link to="">
                         <i className="fa fa-plus-square"></i>Add to wishlist
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="">
-                        <i className="fa fa-plus-square"></i>Add to compare
-                      </a>
                     </li>
                   </ul>
                 </div>

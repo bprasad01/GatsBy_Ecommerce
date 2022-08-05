@@ -115,7 +115,7 @@ const CategoryList = () => {
         </div>
         
         <div className="shipping text-center">
-            <img src={defaultDiscountImg} />
+            <img src={defaultDiscountImg} alt="DefaultImg"/>
         </div>
         
     </div>

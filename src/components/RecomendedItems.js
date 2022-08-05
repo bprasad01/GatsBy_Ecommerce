@@ -2,15 +2,14 @@ import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import slugify from "slugify"
 import defaultImg from "../Assests/images/furniture.jpg"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-import Slider from "react-slick"
+import OwlCarousel from "react-owl-carousel"
+import "owl.carousel/dist/assets/owl.carousel.css"
+import "owl.carousel/dist/assets/owl.theme.default.css"
 
 export const query = graphql`
   {
     allWcProducts(
-      filter: { featured: { eq: true } }
-      limit: 6
+      limit: 3
       sort: {
         order: ASC
         fields: wordpress_parent___wordpress_parent___wordpress_parent___featured
@@ -40,9 +39,7 @@ export const query = graphql`
 
 const RecomendedItems = () => {
   const data = useStaticQuery(query)
-  console.log(data)
   const products = data.allWcProducts.nodes
-  console.log(products)
 
   return (
     <>
@@ -54,7 +51,16 @@ const RecomendedItems = () => {
           data-ride="carousel"
         >
           <div className="carousel-inner">
-            <div className="item active">
+          <OwlCarousel
+                    className="owl-theme"
+                    loop={true}
+                    margin={10}
+                    dots={true}
+                    items={1}
+                    autoplay={true}
+                    nav
+                  >
+            <div className="item">
               {products.map(product => {
                 const { name, price, image, slug, id } = product
                 const slugTitle = slugify(slug, { lower: true })
@@ -78,6 +84,7 @@ const RecomendedItems = () => {
                 )
               })}
             </div>
+            </OwlCarousel>
           </div>
         </div>
       </div>

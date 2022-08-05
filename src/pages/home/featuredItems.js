@@ -44,11 +44,12 @@ const FeaturedItems = () => {
       <div className="features_items">
         <h2 className="title text-center">Features Items</h2>
         {products.map(product => {
-          const { name, price, image, slug, id } = product
+          const { name, price, image, slug } = product
           const slugTitle = slugify(slug, { lower: true })
           return (
             <div className="col-sm-4">
               <div className="product-image-wrapper">
+                <Link to={`/shop/${slugTitle}`}>
                 <div className="single-products">
                   <div className="productinfo text-center">
                     <img src={image ? image : defaultImg} alt="" />
@@ -68,16 +69,12 @@ const FeaturedItems = () => {
                     </div>
                   </div>
                 </div>
+                </Link>
                 <div className="choose">
                   <ul className="nav nav-pills nav-justified">
                     <li>
                       <Link to="#">
                         <i className="fa fa-plus-square"></i>Add to wishlist
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#">
-                        <i className="fa fa-plus-square"></i>Add to compare
                       </Link>
                     </li>
                   </ul>

@@ -1,6 +1,15 @@
 const path = require("path")
 const slugify = require("slugify")
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  const { setWebpackConfig } = actions
+  setWebpackConfig({
+    externals: {
+      jquery: 'jQuery', // important: 'Q' capitalized
+    },
+  })
+}
+
 exports.onCreateNode = ({node, actions}) => {
     const { createNodeField } = actions
     if(node.internal.type === 'wcProduct' ){
@@ -17,6 +26,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
     
   const singlePostTemplate = path.resolve(`src/templates/single-post.js`)
+  const postList = path.resolve(`src/templates/post-list.js`)
 
   const result = await graphql(`
   query GetSingleBlogPost {
@@ -31,7 +41,9 @@ exports.createPages = async ({ graphql, actions }) => {
   }
   `)
 
-  result.data.wpgraphql.posts.nodes.forEach(blog => {
+  const blogs = result.data.wpgraphql.posts.nodes
+
+  blogs.forEach(blog => {
     createPage({
         path : blog.slug,
         component : singlePostTemplate,
@@ -42,4 +54,23 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  const blogsPerPage = 2
+  const numberOfPages = Math.ceil(blogs.length / blogsPerPage)
+
+  Array.from({ length : numberOfPages }.forEach((_, index) => {
+    const isFirstPage = index === 0
+    const currentPage = index + 1
+
+    if(isFirstPage) return
+
+    createPage({
+        path : `/page/${currentPage}`,
+        component : postList,
+        context : {
+            limit : blogsPerPage,
+            skip : index * blogsPerPage,
+            currentPage
+        }
+    })
+  }))
 }
