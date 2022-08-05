@@ -2,7 +2,7 @@ import React from "react"
 import CategoryList from "../components/CategoryList"
 
 const CategoryTemplate = ({ pageContext }) => {
-  const { categories, categoryCounts } = pageContext
+  const { categories } = pageContext
   const newCat = [
     ...new Set(
       categories.reduce((acc, currentVal) => {

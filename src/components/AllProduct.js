@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from "gatsby"
 import ProductList from './ProductList'
-import CategoryList from './CategoryList'
 
 const query = graphql`{
     allWcProducts {

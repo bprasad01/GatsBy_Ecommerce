@@ -1,4 +1,4 @@
-import { Link, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import React from 'react'
 import defaultDiscountImg from '../Assests/images/home/shipping.jpg'
 import setupCategories from '../utils/setupCategories';
