@@ -11,6 +11,7 @@ export default function Home() {
     <Layout>
       <>
       <BannerCarousel />
+    
         <section>
           <div className="container">
             <div className="row">

@@ -29,6 +29,7 @@ const BottomHeader = () => {
                                 </li> 
 								<li><Link to="/blogs">Blog</Link></li>
 								<li><Link to="/contact">Contact</Link></li>
+								<li><Link to="/categories">Categories</Link></li>
 							</ul>
 						</div>
 					</div>

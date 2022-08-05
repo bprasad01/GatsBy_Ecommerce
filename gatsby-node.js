@@ -1,5 +1,6 @@
 const path = require("path")
 const slugify = require("slugify")
+const _ = require('lodash')
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   const { setWebpackConfig } = actions
@@ -26,6 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
     
   const singlePostTemplate = path.resolve(`src/templates/single-post.js`)
+  const categoryTemplate = path.resolve(`src/templates/category-template.js`)
 
   const result = await graphql(`
   query GetSingleBlogPost {
@@ -40,7 +42,37 @@ exports.createPages = async ({ graphql, actions }) => {
   }
   `)
 
+  const resCategory = await graphql(`
+  query {
+    allWcProducts {
+      nodes {
+        name
+        price
+        sku
+        slug
+        status
+        type
+        stock_status
+        sold_individually
+        featured
+        images {
+          name
+          src
+          alt
+        }
+        id
+        categories {
+          name
+          slug
+          id
+        }
+      }
+    }
+  }
+`)
+
   const blogs = result.data.wpgraphql.posts.nodes
+  const category = resCategory.data.allWcProducts.nodes
 
   blogs.forEach(blog => {
     createPage({
@@ -51,6 +83,29 @@ exports.createPages = async ({ graphql, actions }) => {
             slug : blog.slug
         }
     })
+  })
+  // Get all categories
+  let categories = []
+  _.each(category, node => {
+    if(_.get(node, 'categories')){
+      categories = categories.concat(node.categories)
+    }
+  })
+
+  let categoryCounts = {}
+  categories.forEach(item => {
+    categoryCounts[item.name] = (categoryCounts[item.name] || 0 ) + 1;
+  })
+
+// Remove duplicates
+  categories = _.uniq(categories)
+  createPage({
+    path : '/categories',
+    component : categoryTemplate,
+    context : {
+      categories,
+      categoryCounts
+    }
   })
 
 }

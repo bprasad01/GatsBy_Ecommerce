@@ -36,9 +36,7 @@ export const query = graphql`
 `
 const FeaturedItems = () => {
   const data = useStaticQuery(query)
-  console.log(data)
   const products = data.allWcProducts.nodes
-  console.log(products)
   return (
     <>
       <div className="features_items">

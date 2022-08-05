@@ -1,8 +1,21 @@
-import React from 'react'
+import React from "react"
+import CategoryList from "../components/CategoryList"
 
-const CategoryTemplate = () => {
+const CategoryTemplate = ({ pageContext }) => {
+  const { categories, categoryCounts } = pageContext
+  const newCat = [
+    ...new Set(
+      categories.reduce((acc, currentVal) => {
+        return [...acc, currentVal.name]
+      }, [])
+    ),
+  ]
+console.log(newCat);
   return (
-    <div><h2>Category Template Page</h2></div>
+    <div>
+      <h2>Category Template Page</h2>
+      <CategoryList categories={newCat} />
+    </div>
   )
 }
 

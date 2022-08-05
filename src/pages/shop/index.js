@@ -4,7 +4,7 @@ import AllProduct from "../../components/AllProduct";
 import CategoryList from "../../components/CategoryList"
 import Layout from "../../components/Layout"
 import discountImg from '../../Assests/images/shop/advertisement.jpg'
-const Shop = ({ product }) => {
+const Shop = () => {
   return (
     <Layout>
       <section id="advertisement">
