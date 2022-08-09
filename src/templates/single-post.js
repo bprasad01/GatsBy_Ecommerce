@@ -8,13 +8,15 @@ import mediaImg from '../Assests/images/blog/man-one.jpg'
 import mediaImg1 from '../Assests/images/blog/man-two.jpg'
 import mediaImg2 from '../Assests/images/blog/man-three.jpg'
 import mediaImg3 from '../Assests/images/blog/man-four.jpg'
+import SEO from "../components/SEO"
 
 
-const SinglePost = ({ data }) => {
+const SinglePost = ({ data, pageContext }) => {
   const blog = data.wpgraphql.postBy
   return (
     <>
       <Layout>
+      <SEO title={pageContext.slug}/>
         <section>
         <div className="container">
         <div className="row">

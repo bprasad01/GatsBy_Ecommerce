@@ -1,0 +1,30 @@
+query getProductByCategory($slug: String) {
+  allWcProducts(
+    filter: {categories: {elemMatch: {slug: {eq: $slug}}}}
+    sort: {fields: wordpress_parent___wordpress_parent___wordpress_parent___name, order: ASC}
+    limit: 4
+  ) {
+    nodes {
+      name
+      price
+      sku
+      slug
+      status
+      type
+      stock_status
+      sold_individually
+      featured
+      images {
+        name
+        src
+        alt
+      }
+      id
+      categories {
+        name
+        slug
+        id
+      }
+    }
+  }
+}

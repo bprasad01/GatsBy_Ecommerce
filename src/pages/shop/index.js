@@ -4,9 +4,11 @@ import AllProduct from "../../components/AllProduct";
 import CategoryList from "../../components/CategoryList"
 import Layout from "../../components/Layout"
 import discountImg from '../../Assests/images/shop/advertisement.jpg'
+import SEO from "../../components/SEO";
 const Shop = () => {
   return (
     <Layout>
+      <SEO title={"Shop Page"}/>
       <section id="advertisement">
         <div className="container">
           <img src={discountImg} alt="BannerImg" />

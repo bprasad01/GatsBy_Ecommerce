@@ -1,10 +1,12 @@
 import React from "react"
 import Layout from "../../components/Layout"
 import { Link } from "gatsby"
+import SEO from "../../components/SEO"
 const Contact = () => {
   return (
     <>
       <Layout>
+        <SEO title={"Contact Page"} />
         <div id="contact-page" className="container">
           <div className="bg">
             <div className="row">

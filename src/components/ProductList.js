@@ -10,7 +10,7 @@ const ProductList = ({ products = [] }) => {
         const { name, price, image, slug, id } = product
         const slugTitle = slugify(slug, {lower : true})
         return (
-          <Link key={id} to={`/shop/${slugTitle}`}>
+          <Link key={id} to={`/product/${slugTitle}`}>
             <div className="col-sm-4">
               <div className="product-image-wrapper">
                 <div className="single-products">

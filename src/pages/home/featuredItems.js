@@ -47,7 +47,7 @@ const FeaturedItems = () => {
           return (
             <div className="col-sm-4">
               <div className="product-image-wrapper">
-                <Link to={`/shop/${slugTitle}`}>
+                <Link to={`/product/${slugTitle}`}>
                 <div className="single-products">
                   <div className="productinfo text-center">
                     <img src={image ? image : defaultImg} alt="" />

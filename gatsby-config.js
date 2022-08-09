@@ -40,6 +40,7 @@ module.exports = {
         // Array of strings with fields you'd like to create nodes for...
         fields: ['products', 'products/categories', 'products/attributes'],
       }
-    }
+    },
+    `gatsby-plugin-react-helmet`
   ],
 }

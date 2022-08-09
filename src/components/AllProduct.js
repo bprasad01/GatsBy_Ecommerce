@@ -30,9 +30,7 @@ const query = graphql`{
 `
 const AllProduct = () => {
     const data = useStaticQuery(query)
-    console.log(data)
     const product = data.allWcProducts.nodes
-    console.log(product)
     return (
       <section>
         <ProductList products={product} />

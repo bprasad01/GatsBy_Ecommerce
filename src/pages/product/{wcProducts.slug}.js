@@ -4,6 +4,7 @@ import CategoryList from '../../components/CategoryList'
 import Layout from '../../components/Layout'
 import RecomendedItems from '../../components/RecomendedItems'
 import defaultImg from '../../Assests/images/furniture.jpg'
+import SEO from '../../components/SEO'
 
 const ProductTemplete = ({data}) => {
   const { name, id, price, stock_status, categories, images } = data.wcProducts
@@ -12,6 +13,7 @@ const ProductTemplete = ({data}) => {
   return (
     <>
     <Layout>
+		<SEO title={name}/>
     	<section>
 		<div className="container">
 			<div className="row">
