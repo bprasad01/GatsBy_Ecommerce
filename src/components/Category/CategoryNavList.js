@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import defaultImg from "../Assests/images/furniture.jpg"
+import defaultImg from "../../Assests/images/furniture.jpg"
 
 const query = graphql`
   {

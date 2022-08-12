@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import slugify from "slugify"
-import defaultImg from "../Assests/images/furniture.jpg"
+import defaultImg from "../../Assests/images/furniture.jpg"
 import OwlCarousel from "react-owl-carousel"
 import "owl.carousel/dist/assets/owl.carousel.css"
 import "owl.carousel/dist/assets/owl.theme.default.css"

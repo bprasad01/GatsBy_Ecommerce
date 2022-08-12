@@ -1,10 +1,10 @@
 // import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-import AllProduct from "../../components/AllProduct";
-import CategoryList from "../../components/CategoryList"
 import Layout from "../../components/Layout"
 import discountImg from '../../Assests/images/shop/advertisement.jpg'
-import SEO from "../../components/SEO";
+import SEO from "../../components/common/SEO";
+import AllProduct from './../../components/Product/AllProduct';
+import CategoryList from './../../components/Category/CategoryList';
 const Shop = () => {
   return (
     <Layout>

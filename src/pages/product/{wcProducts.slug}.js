@@ -1,10 +1,10 @@
 import { graphql, Link } from 'gatsby'
 import React from 'react'
-import CategoryList from '../../components/CategoryList'
 import Layout from '../../components/Layout'
-import RecomendedItems from '../../components/RecomendedItems'
+import RecomendedItems from '../../components/common/RecomendedItems'
 import defaultImg from '../../Assests/images/furniture.jpg'
-import SEO from '../../components/SEO'
+import SEO from '../../components/common/SEO'
+import CategoryList from './../../components/Category/CategoryList';
 
 const ProductTemplete = ({data}) => {
   const { name, id, price, stock_status, categories, images } = data.wcProducts

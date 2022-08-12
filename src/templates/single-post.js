@@ -2,13 +2,13 @@ import { graphql, Link } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout"
 import moment from "moment"
-import CategoryList from "../components/CategoryList"
 import socialImg from '../Assests/images/blog/socials.png'
 import mediaImg from '../Assests/images/blog/man-one.jpg'
 import mediaImg1 from '../Assests/images/blog/man-two.jpg'
 import mediaImg2 from '../Assests/images/blog/man-three.jpg'
 import mediaImg3 from '../Assests/images/blog/man-four.jpg'
-import SEO from "../components/SEO"
+import SEO from "../components/common/SEO"
+import CategoryList from './../components/Category/CategoryList';
 
 
 const SinglePost = ({ data, pageContext }) => {

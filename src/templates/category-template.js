@@ -1,10 +1,10 @@
 import { graphql } from "gatsby";
 import React from "react"
-import ProductList from '../components/ProductList'
 import Layout from '../components/Layout'
 import discountImg from '../Assests/images/shop/advertisement.jpg'
-import CategoryList from "../components/CategoryList";
-import SEO from "../components/SEO";
+import SEO from "../components/common/SEO";
+import ProductList from './../components/Product/ProductList';
+import CategoryList from './../components/Category/CategoryList';
 
 const CategoryTemplate = ({ data, pageContext }) => {
 console.log(data);

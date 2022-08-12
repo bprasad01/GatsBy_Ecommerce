@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-import CategoryList from "./CategoryList"
+
 import moment from "moment"
 import slugify from "slugify"
+import CategoryList from "../Category/CategoryList"
 
 const Posts = ({ blogs = [] }) => {
   return (
@@ -56,7 +57,7 @@ const Posts = ({ blogs = [] }) => {
                       {excerpt}
                     </p>
                     
-                    <Link key={id} className="btn btn-primary" to={`/${slugTitle}`}>
+                    <Link key={id} className="btn btn-primary" to={`/blog/${slugTitle}`}>
                       Read More
                     </Link>
                   </div>

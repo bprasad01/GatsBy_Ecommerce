@@ -1,9 +1,9 @@
 import { Link } from "gatsby"
 import React from "react"
-import iframeFirstImg from '../Assests/images/home/iframe1.png'
-import iframeSecondImg from '../Assests/images/home/iframe2.png'
-import iframeThirdImg from '../Assests/images/home/iframe3.png'
-import iframeFourthImg from '../Assests/images/home/iframe4.png'
+import iframeFirstImg from '../../Assests/images/home/iframe1.png'
+import iframeSecondImg from '../../Assests/images/home/iframe2.png'
+import iframeThirdImg from '../../Assests/images/home/iframe3.png'
+import iframeFourthImg from '../../Assests/images/home/iframe4.png'
 const Footer = () => {
   return (
     <div>

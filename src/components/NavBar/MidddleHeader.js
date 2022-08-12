@@ -72,7 +72,7 @@ const MidddleHeader = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/art.html">
+                    <Link to="/cart">
                       <i className="fa fa-shopping-cart"></i> Cart
                     </Link>
                   </li>

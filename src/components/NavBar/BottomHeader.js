@@ -23,7 +23,7 @@ const BottomHeader = () => {
                                     <ul role="menu" className="sub-menu">
                                         <li><Link to="/shop">Products</Link></li>
 										<li><Link to="/">Checkout</Link></li> 
-										<li><Link to="/">Cart</Link></li> 
+										<li><Link to="/cart">Cart</Link></li> 
 										
                                     </ul>
                                 </li> 

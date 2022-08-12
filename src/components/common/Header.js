@@ -1,7 +1,7 @@
 import React from "react"
-import TopHeader from "./NavBar/TopHeader"
-import MidddleHeader from "./NavBar/MidddleHeader"
-import BottomHeader from "./NavBar/BottomHeader"
+import TopHeader from "../NavBar/TopHeader"
+import MidddleHeader from "../NavBar/MidddleHeader"
+import BottomHeader from "../NavBar/BottomHeader"
 
 
 const Header = () => {

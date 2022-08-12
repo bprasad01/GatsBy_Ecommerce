@@ -1,9 +1,18 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useState } from "react"
 import slugify from "slugify"
-import defaultImg from "../Assests/images/furniture.jpg"
+import defaultImg from "../../Assests/images/furniture.jpg"
 
 const ProductList = ({ products = [] }) => {
+
+  const [cart, setCart] = useState([]);
+  const handleCartItem = (product) => {
+    if (cart.indexOf(product) !== -1) return;
+    setCart([...cart, product]);
+  };
+
+  console.log(cart);
+
   return (
     <>
       {products.map(product => {
@@ -26,7 +35,7 @@ const ProductList = ({ products = [] }) => {
                     <div className="overlay-content">
                       <h2>${price ? price : 56}</h2>
                       <p>{name}</p>
-                      <Link to="#" className="btn btn-default add-to-cart">
+                      <Link to="#" onClick={() => handleCartItem(product)} className="btn btn-default add-to-cart">
                         <i className="fa fa-shopping-cart"></i>Add to cart
                       </Link>
                     </div>

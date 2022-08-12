@@ -1,11 +1,11 @@
 import React from "react"
-import CategoryList from "../components/CategoryList"
 import Layout from "../components/Layout"
 import FeaturedItems from "./home/featuredItems"
-import RecomendedItems from "../components/RecomendedItems"
+import RecomendedItems from "../components/common/RecomendedItems"
 import BannerCarousel from "./home/bannerCarousel"
-import CategoryNavList from '../components/CategoryNavList'
-import SEO from "../components/SEO"
+import SEO from "../components/common/SEO"
+import CategoryList from './../components/Category/CategoryList';
+import CategoryNavList from './../components/Category/CategoryNavList';
 
 export default function Home() {
 
