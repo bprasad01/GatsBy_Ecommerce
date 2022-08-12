@@ -7,8 +7,7 @@ import SEO from '../../components/common/SEO'
 import CategoryList from './../../components/Category/CategoryList';
 
 const ProductTemplete = ({data}) => {
-  const { name, id, price, stock_status, categories, images } = data.wcProducts
-  console.log(categories)
+  const { name, price, stock_status, categories, images } = data.wcProducts
  
   return (
     <>

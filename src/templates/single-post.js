@@ -242,28 +242,29 @@ const SinglePost = ({ data, pageContext }) => {
                       <h2>Leave a replay</h2>
                       <form>
                         <div className="blank-arrow">
-                          <label>Your Name</label>
+                          <label htmlFor="name">Your Name</label>
                         </div>
                         <span>*</span>
-                        <input type="text" placeholder="write your name..." />
+                        <input type="text" name="name" placeholder="write your name..." />
                         <div className="blank-arrow">
-                          <label>Email Address</label>
+                          <label htmlFor="email">Email Address</label>
                         </div>
                         <span>*</span>
                         <input
                           type="email"
+                          name="email"
                           placeholder="your email address..."
                         />
                         <div className="blank-arrow">
-                          <label>Web Site</label>
+                          <label htmlFor="site">Web Site</label>
                         </div>
-                        <input type="email" placeholder="current city..." />
+                        <input name="site" type="email" placeholder="current city..." />
                       </form>
                     </div>
                     <div className="col-sm-8">
                       <div className="text-area">
                         <div className="blank-arrow">
-                          <label>Your Name</label>
+                          <label htmlFor="message">Your Name</label>
                         </div>
                         <span>*</span>
                         <textarea name="message" rows="11"></textarea>

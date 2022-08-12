@@ -44,8 +44,8 @@ const CategoryNavList = () => {
     })
   }
 
+  setSlug()
   const showProducts = slug => {
-    setSlug()
     products = []
     slugs.map(item => {
       if (item.categories !== null) {
@@ -89,7 +89,7 @@ const CategoryNavList = () => {
             {newCat.map(item => {
               return (
                 <li>
-                  <a onClick={() => showProducts(item)}>{item}</a>
+                  <a href="" onClick={() => showProducts(item)} > {item} </a>
                 </li>
               )
             })}
