@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import Layout from "../../components/Layout"
-import SEO from "../../components/common/seo"
+import Seo from "../../components/common/Seo"
 import Posts from './../../components/Blogs/Posts';
 
 const query = graphql`
@@ -40,7 +40,7 @@ const Blogs = () => {
   return (
     <>
       <Layout>
-        <SEO title={"Blog Page"}/>
+        <Seo title={"Blog Page"}/>
         <section>
           <Posts blogs={blogs} />
         </section>

@@ -2,12 +2,12 @@ import { Link } from "gatsby"
 import React from "react"
 import logoImg from "../Assests/images/home/logo.png"
 import errorImg from "../Assests/images/404/404.png"
-import SEO from "../components/common/seo"
+import Seo from "../components/common/Seo"
 
 const Error = () => {
   return (
     <>
-        <SEO title={"Not-Found"}/>
+        <Seo title={"Not-Found"}/>
       <div className="container text-center">
         <div className="logo-404">
           <Link to="/">

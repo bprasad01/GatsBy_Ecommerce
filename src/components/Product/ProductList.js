@@ -30,7 +30,6 @@ const ProductList = ({ products = [] }) => {
                     <h2>${price ? price : 56}</h2>
                     <p>{name}</p>
                     <button
-                        to="#"
                         onClick={() => addItem(product)}
                         className="btn btn-default add-to-cart"
                       >
@@ -42,7 +41,6 @@ const ProductList = ({ products = [] }) => {
                       <h2>${price ? price : 56}</h2>
                       <p>{name}</p>
                       <button
-                        to="#"
                         onClick={() => addItem(product)}
                         className="btn btn-default add-to-cart"
                       >

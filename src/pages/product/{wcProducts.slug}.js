@@ -3,20 +3,21 @@ import React from "react"
 import Layout from "../../components/Layout"
 import RecomendedItems from "../../components/common/RecomendedItems"
 import defaultImg from "../../Assests/images/furniture.jpg"
-import SEO from "../../components/common/seo"
+import Seo from "../../components/common/Seo"
 import CategoryList from "./../../components/Category/CategoryList"
 import { useCart } from "react-use-cart"
 
 const ProductTemplete = ({ data }) => {
-  const { addItem } = useCart();
-  const product = data.wcProducts
-  console.log(product)
-  const { name, price, stock_status, images } = product
+	const product = data.wcProducts
+	console.log(product)
+	const { name, price, stock_status, images } = product
+	const { addItem } = useCart();
+	console.log(useCart);
 
   return (
     <>
       <Layout>
-        <SEO title={name} />
+        <Seo title={name} />
         <section>
           <div className="container">
             <div className="row">
@@ -35,7 +36,7 @@ const ProductTemplete = ({ data }) => {
                       <img
                         src="images/product-details/new.jpg"
                         className="newarrival"
-                        alt="productimage"
+                        alt=""
                       />
                       <h2>{name}</h2>
                       <p>Web ID: 1089772</p>
@@ -45,8 +46,8 @@ const ProductTemplete = ({ data }) => {
                         <label htmlFor="quantity">Quantity:</label>
                         <input name="quantity" type="text" value="3" />
                         <button
-                          type="button"
                           className="btn btn-fefault cart"
+                          onClick={() => addItem(product)}
                         >
                           <i className="fa fa-shopping-cart"></i>
                           Add to cart

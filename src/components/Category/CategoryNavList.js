@@ -40,7 +40,7 @@ const CategoryNavList = () => {
 
   const setSlug = () => {
     category.filter(item => {
-      slugs.push(item)
+      return slugs.push(item)
     })
   }
 
@@ -49,15 +49,17 @@ const CategoryNavList = () => {
     products = []
     slugs.map(item => {
       if (item.categories !== null) {
-         item.categories.find(
+        item.categories.find(
           data => {
             if(data.slug === slug){
               console.log(item)
-             products.push(item)
+              products.push(item)
             }
+            return data
           }
-        )
+          )
       }
+      return item
     })
   }
 
@@ -66,10 +68,11 @@ const CategoryNavList = () => {
   const getCategory = () => {
     category.map(item => {
       if (item.categories !== null) {
-        item.categories.map(data => {
+         item.categories.map(data => {
           return productArr.push(data)
         })
       }
+      return item
     })
   }
   getCategory()

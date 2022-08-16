@@ -2,7 +2,7 @@ import { graphql } from "gatsby";
 import React from "react"
 import Layout from '../components/Layout'
 import discountImg from '../Assests/images/shop/advertisement.jpg'
-import SEO from "../components/common/seo";
+import Seo from "../components/common/Seo";
 import ProductList from './../components/Product/ProductList';
 import CategoryList from './../components/Category/CategoryList';
 
@@ -13,7 +13,7 @@ console.log(products)
   return (
     <>
     <Layout>
-      <SEO title={pageContext.slug}/>
+      <Seo title={pageContext.slug}/>
     <section id="advertisement">
         <div className="container">
           <img src={discountImg} alt="BannerImg" />
