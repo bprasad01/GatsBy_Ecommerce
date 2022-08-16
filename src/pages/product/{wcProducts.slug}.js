@@ -35,7 +35,7 @@ const ProductTemplete = ({ data }) => {
                       <img
                         src="images/product-details/new.jpg"
                         className="newarrival"
-                        alt=""
+                        alt="productimage"
                       />
                       <h2>{name}</h2>
                       <p>Web ID: 1089772</p>

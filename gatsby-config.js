@@ -6,6 +6,9 @@
 
 module.exports = {
   /* Your site config here */
+  flags : {
+    DEV_SSR : false
+  },
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
