@@ -1,10 +1,14 @@
 import { Link } from 'gatsby'
 import React from 'react'
+import { useCart } from 'react-use-cart'
 
 const Cart = () => {
-    
+    const { isEmpty, totalUniqueItems, items, totalItems, cartTotal, updateItemQuantity, removeItem, emptyCart } = useCart();
+    // console.log(items);
+    if(isEmpty) return <h1>Your Cart is Empty</h1>
   return (
-    <><section id="cart_items">
+    <>
+    <section id="cart_items">
     <div class="container">
         <div class="breadcrumbs">
             <ol class="breadcrumb">
@@ -20,92 +24,120 @@ const Cart = () => {
                         <td class="description"></td>
                         <td class="price">Price</td>
                         <td class="quantity">Quantity</td>
-                        <td class="total">Total</td>
                         <td></td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    {items.map((item,index) => {
+                        return(
+                        <tr>
                         <td class="cart_product">
                             <Link to="#"><img src="images/cart/one.png" alt="product" /></Link>
                         </td>
                         <td class="cart_description">
-                            <h4><Link to="#">Colorblock Scuba</Link></h4>
+                            <h4><Link to="#">{item.name}</Link></h4>
                             <p>Web ID: 1089772</p>
                         </td>
                         <td class="cart_price">
-                            <p>$59</p>
+                            <p>{item.price}</p>
                         </td>
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
-                                <Link class="cart_quantity_up" to="#"> + </Link>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2" />
-                                <Link class="cart_quantity_down" to="#"> - </Link>
+                                <button class="cart_quantity_up" onClick={() => updateItemQuantity(item.id, item.quantity + 1)}> + </button>
+                                <input class="cart_quantity_input" type="text" name="quantity" value={item.quantity} autocomplete="off" size="2" />
+                                <button class="cart_quantity_down" onClick={() => updateItemQuantity(item.id, item.quantity - 1)}> - </button>
                             </div>
                         </td>
-                        <td class="cart_total">
-                            <p class="cart_total_price">$59</p>
-                        </td>
                         <td class="cart_delete">
-                            <Link class="cart_quantity_delete" to="#"><i class="fa fa-times"></i></Link>
+                            <button class="cart_quantity_delete" onClick={() => removeItem(item.id)}><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
-
-                    <tr>
-                        <td class="cart_product">
-                            <Link to="#"><img src="images/cart/two.png" alt="product" /></Link>
-                        </td>
-                        <td class="cart_description">
-                            <h4><Link to="#">Colorblock Scuba</Link></h4>
-                            <p>Web ID: 1089772</p>
-                        </td>
-                        <td class="cart_price">
-                            <p>$59</p>
-                        </td>
-                        <td class="cart_quantity">
-                            <div class="cart_quantity_button">
-                                <Link class="cart_quantity_up" to="#"> + </Link>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2" />
-                                <Link class="cart_quantity_down" to="#"> - </Link>
-                            </div>
-                        </td>
-                        <td class="cart_total">
-                            <p class="cart_total_price">$59</p>
-                        </td>
-                        <td class="cart_delete">
-                            <Link class="cart_quantity_delete" to="#"><i class="fa fa-times"></i></Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="cart_product">
-                            <Link to="#"><img src="images/cart/three.png" alt="product" /></Link>
-                        </td>
-                        <td class="cart_description">
-                            <h4><Link to="#">Colorblock Scuba</Link></h4>
-                            <p>Web ID: 1089772</p>
-                        </td>
-                        <td class="cart_price">
-                            <p>$59</p>
-                        </td>
-                        <td class="cart_quantity">
-                            <div class="cart_quantity_button">
-                                <Link class="cart_quantity_up" to="#"> + </Link>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2" />
-                                <Link class="cart_quantity_down" to="#"> - </Link>
-                            </div>
-                        </td>
-                        <td class="cart_total">
-                            <p class="cart_total_price">$59</p>
-                        </td>
-                        <td class="cart_delete">
-                            <Link class="cart_quantity_delete" to="#"><i class="fa fa-times"></i></Link>
-                        </td>
-                    </tr>
+                        )
+                    })}
+                    
                 </tbody>
             </table>
         </div>
     </div>
-</section> </>
+</section>
+
+<section id="do_action">
+		<div class="container">
+			<div class="heading">
+				<h3>What would you like to do next?</h3>
+				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="chose_area">
+						<ul class="user_option">
+							<li>
+								<input type="checkbox" />
+								<label>Use Coupon Code</label>
+							</li>
+							<li>
+								<input type="checkbox" />
+								<label>Use Gift Voucher</label>
+							</li>
+							<li>
+								<input type="checkbox" />
+								<label>Estimate Shipping & Taxes</label>
+							</li>
+						</ul>
+						<ul class="user_info">
+							<li class="single_field">
+								<label>Country:</label>
+								<select>
+									<option>United States</option>
+									<option>Bangladesh</option>
+									<option>UK</option>
+									<option>India</option>
+									<option>Pakistan</option>
+									<option>Ucrane</option>
+									<option>Canada</option>
+									<option>Dubai</option>
+								</select>
+								
+							</li>
+							<li class="single_field">
+								<label>Region / State:</label>
+								<select>
+									<option>Select</option>
+									<option>Dhaka</option>
+									<option>London</option>
+									<option>Dillih</option>
+									<option>Lahore</option>
+									<option>Alaska</option>
+									<option>Canada</option>
+									<option>Dubai</option>
+								</select>
+							
+							</li>
+							<li class="single_field zip-field">
+								<label>Zip Code:</label>
+								<input type="text" />
+							</li>
+						</ul>
+						<a class="btn btn-default update" href="">Get Quotes</a>
+						<a class="btn btn-default check_out" href="">Continue</a>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="total_area">
+						<ul>
+							<li>Cart Sub Total <span>{cartTotal}</span></li>
+							<li>Eco Tax <span>$2</span></li>
+							<li>Shipping Cost <span>Free</span></li>
+							<li>Total <span>{"$" + (cartTotal + 2)}</span></li>
+						</ul>
+							<a class="btn btn-default update" href="">Update</a>
+							<a class="btn btn-default check_out" href="">Check Out</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+ </>
   )
 }
 

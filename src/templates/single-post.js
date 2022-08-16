@@ -7,7 +7,7 @@ import mediaImg from '../Assests/images/blog/man-one.jpg'
 import mediaImg1 from '../Assests/images/blog/man-two.jpg'
 import mediaImg2 from '../Assests/images/blog/man-three.jpg'
 import mediaImg3 from '../Assests/images/blog/man-four.jpg'
-import SEO from "../components/common/SEO"
+import SEO from "../components/common/seo"
 import CategoryList from './../components/Category/CategoryList';
 
 

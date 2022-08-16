@@ -8,13 +8,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.min.css'
 import Footer from './common/Footer';
 import Header from './common/Header';
-
+import { CartProvider } from 'react-use-cart'
 const Layout = ({children}) => {
   return (
     <>
+        <CartProvider>
         <Header />
         {children}
         <Footer />
+        </CartProvider>
     </>
   )
 }

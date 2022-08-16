@@ -3,7 +3,7 @@ import Layout from "../components/Layout"
 import FeaturedItems from "./home/featuredItems"
 import RecomendedItems from "../components/common/RecomendedItems"
 import BannerCarousel from "./home/bannerCarousel"
-import SEO from "../components/common/SEO"
+import SEO from "../components/common/seo"
 import CategoryList from './../components/Category/CategoryList';
 import CategoryNavList from './../components/Category/CategoryNavList';
 

@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import React from "react"
 import logoImg from "../Assests/images/home/logo.png"
 import errorImg from "../Assests/images/404/404.png"
-import SEO from "../components/common/SEO"
+import SEO from "../components/common/seo"
 
 const Error = () => {
   return (

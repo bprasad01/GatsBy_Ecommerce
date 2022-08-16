@@ -41,6 +41,7 @@ module.exports = {
         fields: ['products', 'products/categories', 'products/attributes'],
       }
     },
+    
     `gatsby-plugin-react-helmet`
   ],
 }

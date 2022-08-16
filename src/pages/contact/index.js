@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../../components/Layout"
 import { Link } from "gatsby"
-import SEO from "../../components/common/SEO"
+import SEO from "../../components/common/seo"
 const Contact = () => {
   return (
     <>

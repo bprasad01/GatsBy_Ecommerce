@@ -2,7 +2,7 @@
 import React from "react"
 import Layout from "../../components/Layout"
 import discountImg from '../../Assests/images/shop/advertisement.jpg'
-import SEO from "../../components/common/SEO";
+import SEO from "../../components/common/seo";
 import AllProduct from './../../components/Product/AllProduct';
 import CategoryList from './../../components/Category/CategoryList';
 const Shop = () => {

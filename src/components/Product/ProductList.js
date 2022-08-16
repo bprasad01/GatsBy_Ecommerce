@@ -1,33 +1,25 @@
 import { Link } from "gatsby"
-import React, { useState } from "react"
+import React from "react"
 import slugify from "slugify"
 import defaultImg from "../../Assests/images/furniture.jpg"
-import Pagination from "../common/Pagination"
+import { useCart } from "react-use-cart"
 
 const ProductList = ({ products = [] }) => {
-  
-  const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage] = useState(6)
 
-  const [cart, setCart] = useState([]);
-  const handleCartItem = (product) => {
-    if (cart.indexOf(product) !== -1) return;
-    setCart([...cart, product]);
-  };
+  const { addItem } = useCart();
 
-
-  const indexOfLastPost = currentPage * postsPerPage
-  const indexOfFirstPost = indexOfLastPost - postsPerPage
-  const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost)
-  const paginate = pageNumber => {
-    setCurrentPage(pageNumber)
-  }
+  // const [cart, setCart] = useState([])
+  // const handleCartItem = product => {
+  //   if (cart.indexOf(product) !== -1) return
+  //   setCart([...cart, product])
+  // }
 
   return (
     <>
-      {currentPosts.map(product => {
+      {products.map(product => {
+        console.log(product)
         const { name, price, image, slug, id } = product
-        const slugTitle = slugify(slug, {lower : true})
+        const slugTitle = slugify(slug, { lower: true })
         return (
           <Link key={id} to={`/product/${slugTitle}`}>
             <div className="col-sm-4">
@@ -37,17 +29,25 @@ const ProductList = ({ products = [] }) => {
                     <img src={image ? image : defaultImg} alt="Product" />
                     <h2>${price ? price : 56}</h2>
                     <p>{name}</p>
-                    <Link to="#" className="btn btn-default add-to-cart">
-                      <i className="fa fa-shopping-cart"></i>Add to cart
-                    </Link>
+                    <button
+                        to="#"
+                        onClick={() => addItem(product)}
+                        className="btn btn-default add-to-cart"
+                      >
+                        <i className="fa fa-shopping-cart"></i>Add to cart
+                      </button>
                   </div>
                   <div className="product-overlay">
                     <div className="overlay-content">
                       <h2>${price ? price : 56}</h2>
                       <p>{name}</p>
-                      <Link to="#" onClick={() => handleCartItem(product)} className="btn btn-default add-to-cart">
+                      <button
+                        to="#"
+                        onClick={() => addItem(product)}
+                        className="btn btn-default add-to-cart"
+                      >
                         <i className="fa fa-shopping-cart"></i>Add to cart
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -58,8 +58,7 @@ const ProductList = ({ products = [] }) => {
                         <i className="fa fa-plus-square"></i>Add to wishlist
                       </Link>
                     </li>
-                    <li>
-                    </li>
+                    <li></li>
                   </ul>
                 </div>
               </div>
@@ -67,12 +66,12 @@ const ProductList = ({ products = [] }) => {
           </Link>
         )
       })}
-       <Pagination
-                postsPerPage={postsPerPage}
-                totalPosts={products.length}
-                paginate={paginate}
-                currentPage={currentPage}
-              />
+      {/* <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={products.length}
+        paginate={paginate}
+        currentPage={currentPage}
+      /> */}
     </>
   )
 }

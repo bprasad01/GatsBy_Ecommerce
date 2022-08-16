@@ -91,7 +91,7 @@ const CategoryNavList = () => {
                 <li>
                   <button
                     className="category-btn"
-                    onClick={() => {showProducts(item)}}
+                    onClick={() => showProducts(item)}
                   >
                     {item}
                   </button>
