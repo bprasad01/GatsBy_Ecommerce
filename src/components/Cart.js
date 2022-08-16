@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import React from 'react'
 
 const Cart = () => {
@@ -7,7 +8,7 @@ const Cart = () => {
     <div class="container">
         <div class="breadcrumbs">
             <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
+              <li><Link to="#">Home</Link></li>
               <li class="active">Shopping Cart</li>
             </ol>
         </div>
@@ -26,10 +27,10 @@ const Cart = () => {
                 <tbody>
                     <tr>
                         <td class="cart_product">
-                            <a href=""><img src="images/cart/one.png" alt="" /></a>
+                            <Link to="#"><img src="images/cart/one.png" alt="product" /></Link>
                         </td>
                         <td class="cart_description">
-                            <h4><a href="">Colorblock Scuba</a></h4>
+                            <h4><Link to="#">Colorblock Scuba</Link></h4>
                             <p>Web ID: 1089772</p>
                         </td>
                         <td class="cart_price">
@@ -37,25 +38,25 @@ const Cart = () => {
                         </td>
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
-                                <a class="cart_quantity_up" href=""> + </a>
+                                <Link class="cart_quantity_up" to="#"> + </Link>
                                 <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2" />
-                                <a class="cart_quantity_down" href=""> - </a>
+                                <Link class="cart_quantity_down" to="#"> - </Link>
                             </div>
                         </td>
                         <td class="cart_total">
                             <p class="cart_total_price">$59</p>
                         </td>
                         <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                            <Link class="cart_quantity_delete" to="#"><i class="fa fa-times"></i></Link>
                         </td>
                     </tr>
 
                     <tr>
                         <td class="cart_product">
-                            <a href=""><img src="images/cart/two.png" alt="" /></a>
+                            <Link to="#"><img src="images/cart/two.png" alt="product" /></Link>
                         </td>
                         <td class="cart_description">
-                            <h4><a href="">Colorblock Scuba</a></h4>
+                            <h4><Link to="#">Colorblock Scuba</Link></h4>
                             <p>Web ID: 1089772</p>
                         </td>
                         <td class="cart_price">
@@ -63,24 +64,24 @@ const Cart = () => {
                         </td>
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
-                                <a class="cart_quantity_up" href=""> + </a>
+                                <Link class="cart_quantity_up" to="#"> + </Link>
                                 <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2" />
-                                <a class="cart_quantity_down" href=""> - </a>
+                                <Link class="cart_quantity_down" to="#"> - </Link>
                             </div>
                         </td>
                         <td class="cart_total">
                             <p class="cart_total_price">$59</p>
                         </td>
                         <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                            <Link class="cart_quantity_delete" to="#"><i class="fa fa-times"></i></Link>
                         </td>
                     </tr>
                     <tr>
                         <td class="cart_product">
-                            <a href=""><img src="images/cart/three.png" alt="" /></a>
+                            <Link to="#"><img src="images/cart/three.png" alt="product" /></Link>
                         </td>
                         <td class="cart_description">
-                            <h4><a href="">Colorblock Scuba</a></h4>
+                            <h4><Link to="#">Colorblock Scuba</Link></h4>
                             <p>Web ID: 1089772</p>
                         </td>
                         <td class="cart_price">
@@ -88,16 +89,16 @@ const Cart = () => {
                         </td>
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
-                                <a class="cart_quantity_up" href=""> + </a>
+                                <Link class="cart_quantity_up" to="#"> + </Link>
                                 <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2" />
-                                <a class="cart_quantity_down" href=""> - </a>
+                                <Link class="cart_quantity_down" to="#"> - </Link>
                             </div>
                         </td>
                         <td class="cart_total">
                             <p class="cart_total_price">$59</p>
                         </td>
                         <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                            <Link class="cart_quantity_delete" to="#"><i class="fa fa-times"></i></Link>
                         </td>
                     </tr>
                 </tbody>

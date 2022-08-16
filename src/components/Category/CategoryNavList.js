@@ -49,11 +49,14 @@ const CategoryNavList = () => {
     products = []
     slugs.map(item => {
       if (item.categories !== null) {
-        let itemData = item.categories.find(data => data.slug === slug)
-        if (itemData !== undefined) {
-          console.log(item)
-          products.push(item)
-        }
+         item.categories.find(
+          data => {
+            if(data.slug === slug){
+              console.log(item)
+             products.push(item)
+            }
+          }
+        )
       }
     })
   }
@@ -61,15 +64,13 @@ const CategoryNavList = () => {
   showProducts("dresses")
   const productArr = []
   const getCategory = () => {
-    {
-      category.map(item => {
-        if (item.categories !== null) {
-          return item.categories.map(data => {
-            productArr.push(data)
-          })
-        }
-      })
-    }
+    category.map(item => {
+      if (item.categories !== null) {
+        item.categories.map(data => {
+          return productArr.push(data)
+        })
+      }
+    })
   }
   getCategory()
 
@@ -80,7 +81,6 @@ const CategoryNavList = () => {
       }, [])
     ),
   ]
-
   return (
     <>
       <div className="category-tab">
@@ -89,7 +89,12 @@ const CategoryNavList = () => {
             {newCat.map(item => {
               return (
                 <li>
-                  <a href="" onClick={() => showProducts(item)} > {item} </a>
+                  <button
+                    className="category-btn"
+                    onClick={() => {showProducts(item)}}
+                  >
+                    {item}
+                  </button>
                 </li>
               )
             })}
@@ -98,7 +103,7 @@ const CategoryNavList = () => {
 
         <div className="tab-content">
           <div className="tab-pane fade active in">
-            {products &&
+            {
               products.map(product => {
                 console.log(product)
                 return (

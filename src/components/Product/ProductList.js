@@ -2,8 +2,12 @@ import { Link } from "gatsby"
 import React, { useState } from "react"
 import slugify from "slugify"
 import defaultImg from "../../Assests/images/furniture.jpg"
+import Pagination from "../common/Pagination"
 
 const ProductList = ({ products = [] }) => {
+  
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage] = useState(6)
 
   const [cart, setCart] = useState([]);
   const handleCartItem = (product) => {
@@ -11,11 +15,17 @@ const ProductList = ({ products = [] }) => {
     setCart([...cart, product]);
   };
 
-  console.log(cart);
+
+  const indexOfLastPost = currentPage * postsPerPage
+  const indexOfFirstPost = indexOfLastPost - postsPerPage
+  const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost)
+  const paginate = pageNumber => {
+    setCurrentPage(pageNumber)
+  }
 
   return (
     <>
-      {products.map(product => {
+      {currentPosts.map(product => {
         const { name, price, image, slug, id } = product
         const slugTitle = slugify(slug, {lower : true})
         return (
@@ -57,6 +67,12 @@ const ProductList = ({ products = [] }) => {
           </Link>
         )
       })}
+       <Pagination
+                postsPerPage={postsPerPage}
+                totalPosts={products.length}
+                paginate={paginate}
+                currentPage={currentPage}
+              />
     </>
   )
 }

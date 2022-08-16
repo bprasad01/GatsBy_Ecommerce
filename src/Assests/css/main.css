@@ -1015,7 +1015,23 @@ h2.title {
   text-transform: uppercase;
 }
 
+.category-tab ul li .category-btn {
+  border: 0 none;
+  border-radius: 0;
+  color: #B3AFA8;
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+
 .category-tab ul  li  a:hover{
+	background:#FE980F;
+	color:#fff;
+}
+
+.category-tab ul  li  .category-btn:hover{
 	background:#FE980F;
 	color:#fff;
 }
@@ -1033,7 +1049,27 @@ h2.title {
   margin-left:0;
 }
 
+.nav-tabs  li.active  .category-btn, .nav-tabs  li.active  .category-btn:hover, .nav-tabs  li.active  .category-btn:focus {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background-color: #FE980F;
+  border:0px;
+  color: #FFFFFF;
+  cursor: default;
+  margin-right:0;
+  margin-left:0;
+}
+
 .nav-tabs  li  a {
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 4px 4px 0 0;
+  line-height: 1.42857;
+  margin-right:0;
+}
+
+.nav-tabs  li  .category-btn {
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 4px 4px 0 0;
   line-height: 1.42857;

@@ -7,7 +7,7 @@ import SEO from '../../components/common/SEO'
 import CategoryList from './../../components/Category/CategoryList';
 
 const ProductTemplete = ({data}) => {
-  const { name, price, stock_status, categories, images } = data.wcProducts
+  const { name, price, stock_status, images } = data.wcProducts
  
   return (
     <>
@@ -36,8 +36,8 @@ const ProductTemplete = ({data}) => {
 								<img src="images/product-details/rating.png" alt="" />
 								<span>
 									<span>US ${price ? price : 70}</span>
-									<label>Quantity:</label>
-									<input type="text" value="3" />
+									<label htmlFor='quantity'>Quantity:</label>
+									<input name='quantity' type="text" value="3" />
 									<button type="button" className="btn btn-fefault cart">
 										<i className="fa fa-shopping-cart"></i>
 										Add to cart
