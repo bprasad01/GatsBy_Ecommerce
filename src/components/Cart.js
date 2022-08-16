@@ -3,53 +3,53 @@ import React from 'react'
 import { useCart } from 'react-use-cart'
 
 const Cart = () => {
-    const { isEmpty, totalUniqueItems, items, totalItems, cartTotal, updateItemQuantity, removeItem, emptyCart } = useCart();
+    const { isEmpty, items, cartTotal, updateItemQuantity, removeItem, } = useCart();
     // console.log(items);
     if(isEmpty) return <h1>Your Cart is Empty</h1>
   return (
     <>
     <section id="cart_items">
-    <div class="container">
-        <div class="breadcrumbs">
-            <ol class="breadcrumb">
+    <div className="container">
+        <div className="breadcrumbs">
+            <ol className="breadcrumb">
               <li><Link to="#">Home</Link></li>
-              <li class="active">Shopping Cart</li>
+              <li className="active">Shopping Cart</li>
             </ol>
         </div>
-        <div class="table-responsive cart_info">
-            <table class="table table-condensed">
+        <div className="table-responsive cart_info">
+            <table className="table table-condensed">
                 <thead>
-                    <tr class="cart_menu">
-                        <td class="image">Item</td>
-                        <td class="description"></td>
-                        <td class="price">Price</td>
-                        <td class="quantity">Quantity</td>
+                    <tr className="cart_menu">
+                        <td className="image">Item</td>
+                        <td className="description"></td>
+                        <td className="price">Price</td>
+                        <td className="quantity">Quantity</td>
                         <td></td>
                     </tr>
                 </thead>
                 <tbody>
-                    {items.map((item,index) => {
+                    {items.map((item) => {
                         return(
                         <tr>
-                        <td class="cart_product">
+                        <td className="cart_product">
                             <Link to="#"><img src="images/cart/one.png" alt="product" /></Link>
                         </td>
-                        <td class="cart_description">
+                        <td className="cart_description">
                             <h4><Link to="#">{item.name}</Link></h4>
                             <p>Web ID: 1089772</p>
                         </td>
-                        <td class="cart_price">
+                        <td className="cart_price">
                             <p>{item.price}</p>
                         </td>
-                        <td class="cart_quantity">
-                            <div class="cart_quantity_button">
-                                <button class="cart_quantity_up" onClick={() => updateItemQuantity(item.id, item.quantity + 1)}> + </button>
-                                <input class="cart_quantity_input" type="text" name="quantity" value={item.quantity} autocomplete="off" size="2" />
-                                <button class="cart_quantity_down" onClick={() => updateItemQuantity(item.id, item.quantity - 1)}> - </button>
+                        <td className="cart_quantity">
+                            <div className="cart_quantity_button">
+                                <button className="cart_quantity_up" onClick={() => updateItemQuantity(item.id, item.quantity + 1)}> + </button>
+                                <input className="cart_quantity_input" type="text" name="quantity" value={item.quantity} autocomplete="off" size="2" />
+                                <button className="cart_quantity_down" onClick={() => updateItemQuantity(item.id, item.quantity - 1)}> - </button>
                             </div>
                         </td>
-                        <td class="cart_delete">
-                            <button class="cart_quantity_delete" onClick={() => removeItem(item.id)}><i class="fa fa-times"></i></button>
+                        <td className="cart_delete">
+                            <button className="cart_quantity_delete" onClick={() => removeItem(item.id)}><i className="fa fa-times"></i></button>
                         </td>
                     </tr>
                         )
@@ -62,31 +62,31 @@ const Cart = () => {
 </section>
 
 <section id="do_action">
-		<div class="container">
-			<div class="heading">
+		<div className="container">
+			<div className="heading">
 				<h3>What would you like to do next?</h3>
 				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
 			</div>
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="chose_area">
-						<ul class="user_option">
+			<div className="row">
+				<div className="col-sm-6">
+					<div className="chose_area">
+						<ul className="user_option">
 							<li>
-								<input type="checkbox" />
-								<label>Use Coupon Code</label>
+								<input name='coupon' type="checkbox" />
+								<label htmlFor='coupon'>Use Coupon Code</label>
 							</li>
 							<li>
-								<input type="checkbox" />
-								<label>Use Gift Voucher</label>
+								<input name='voucher' type="checkbox" />
+								<label htmlFor='voucher'>Use Gift Voucher</label>
 							</li>
 							<li>
-								<input type="checkbox" />
-								<label>Estimate Shipping & Taxes</label>
+								<input name='shipping' type="checkbox" />
+								<label htmlFor='shipping'>Estimate Shipping & Taxes</label>
 							</li>
 						</ul>
-						<ul class="user_info">
-							<li class="single_field">
-								<label>Country:</label>
+						<ul className="user_info">
+							<li className="single_field">
+								<label htmlFor='country'>Country:</label>
 								<select>
 									<option>United States</option>
 									<option>Bangladesh</option>
@@ -99,8 +99,8 @@ const Cart = () => {
 								</select>
 								
 							</li>
-							<li class="single_field">
-								<label>Region / State:</label>
+							<li className="single_field">
+								<label htmlFor='state'>Region / State:</label>
 								<select>
 									<option>Select</option>
 									<option>Dhaka</option>
@@ -113,25 +113,25 @@ const Cart = () => {
 								</select>
 							
 							</li>
-							<li class="single_field zip-field">
-								<label>Zip Code:</label>
-								<input type="text" />
+							<li className="single_field zip-field">
+								<label htmlFor='zipcode'>Zip Code:</label>
+								<input name='zipcode' type="text" />
 							</li>
 						</ul>
-						<a class="btn btn-default update" href="">Get Quotes</a>
-						<a class="btn btn-default check_out" href="">Continue</a>
+						<a className="btn btn-default update" href="#">Get Quotes</a>
+						<a className="btn btn-default check_out" href="#">Continue</a>
 					</div>
 				</div>
-				<div class="col-sm-6">
-					<div class="total_area">
+				<div className="col-sm-6">
+					<div className="total_area">
 						<ul>
 							<li>Cart Sub Total <span>{cartTotal}</span></li>
 							<li>Eco Tax <span>$2</span></li>
 							<li>Shipping Cost <span>Free</span></li>
 							<li>Total <span>{"$" + (cartTotal + 2)}</span></li>
 						</ul>
-							<a class="btn btn-default update" href="">Update</a>
-							<a class="btn btn-default check_out" href="">Check Out</a>
+							<a className="btn btn-default update" href="#">Update</a>
+							<a className="btn btn-default check_out" href="#">Check Out</a>
 					</div>
 				</div>
 			</div>
