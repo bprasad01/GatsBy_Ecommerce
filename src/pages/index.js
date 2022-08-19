@@ -5,7 +5,6 @@ import RecomendedItems from "../components/common/RecomendedItems"
 import BannerCarousel from "./home/bannerCarousel"
 import Seo from "../components/common/Seo"
 import CategoryList from './../components/Category/CategoryList';
-import CategoryNavList from './../components/Category/CategoryNavList';
 
 export default function Home() {
 
@@ -22,7 +21,6 @@ export default function Home() {
 
               <div className="col-sm-9 padding-right">
                 <FeaturedItems />
-                <CategoryNavList />
                 <RecomendedItems />
               </div>
             </div>

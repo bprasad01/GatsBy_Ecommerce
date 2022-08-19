@@ -1,25 +1,20 @@
-import { graphql, Link } from "gatsby"
-import React from "react"
-import Layout from "../../components/Layout"
-import RecomendedItems from "../../components/common/RecomendedItems"
+import { Link } from 'gatsby'
+import React from 'react'
+import CategoryList from '../Category/CategoryList'
+import RecomendedItems from '../common/RecomendedItems'
 import defaultImg from "../../Assests/images/furniture.jpg"
-import Seo from "../../components/common/Seo"
-import CategoryList from "./../../components/Category/CategoryList"
-import { useCart } from "react-use-cart"
+import { useCart } from 'react-use-cart'
 
-const ProductTemplete = ({ data }) => {
-	const product = data.wcProducts
-	console.log(product)
-	const { name, price, stock_status, images } = product
-	const { addItem } = useCart();
-  console.log(useCart);
-
+const Product = ({product}) => {
+    const { name, price, stock_status, images } = product
+    let imageData = [];
+    images.map(imgData => {
+        imageData = imgData
+    })
+    const {addItem} = useCart()
   return (
     <>
-      <Layout>
-        <Seo title={name} />
-        <section>
-          <div className="container">
+        <div className="container">
             <div className="row">
               <CategoryList />
 
@@ -27,7 +22,7 @@ const ProductTemplete = ({ data }) => {
                 <div className="product-details">
                   <div className="col-sm-5">
                     <div className="view-product">
-                      <img src={images ? defaultImg : images} alt="" />
+                      <img src={imageData.src ? imageData.src : defaultImg} alt="" />
                       <h3>ZOOM</h3>
                     </div>
                   </div>
@@ -323,7 +318,7 @@ const ProductTemplete = ({ data }) => {
                         </div>
                       </div>
                     </div>
-
+                  
                     <div className="tab-pane fade active in" id="reviews">
                       <div className="col-sm-12">
                         <ul>
@@ -380,30 +375,8 @@ const ProductTemplete = ({ data }) => {
               </div>
             </div>
           </div>
-        </section>
-      </Layout>
     </>
   )
 }
 
-export const query = graphql`
-  query ($slug: String) {
-    wcProducts(slug: { eq: $slug }) {
-      name
-      slug
-      id
-      price
-      stock_status
-      images {
-        name
-        src
-        alt
-      }
-      categories {
-        name
-      }
-    }
-  }
-`
-
-export default ProductTemplete
+export default Product

@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import slugify from "slugify"
 import defaultImg from "../../Assests/images/furniture.jpg"
+import { useCart } from "react-use-cart"
 
 export const query = graphql`
   {
@@ -37,6 +38,7 @@ export const query = graphql`
 const FeaturedItems = () => {
   const data = useStaticQuery(query)
   const products = data.allWcProducts.nodes
+  const { addItem } = useCart()
   return (
     <>
       <div className="features_items">
@@ -47,23 +49,23 @@ const FeaturedItems = () => {
           return (
             <div className="col-sm-4">
               <div className="product-image-wrapper">
-                <Link to={`/product/${slugTitle}`}>
+                <Link to={`/products/${slugTitle}`}>
                 <div className="single-products">
                   <div className="productinfo text-center">
                     <img src={image ? image : defaultImg} alt="" />
                     <h2>${price ? price : 56}</h2>
                     <p>{name}</p>
-                    <Link to="#" className="btn btn-default add-to-cart">
+                    <a href="/#" onClick={() => addItem(product)} className="btn btn-default add-to-cart">
                       <i className="fa fa-shopping-cart"></i>Add to cart
-                    </Link>
+                    </a>
                   </div>
                   <div className="product-overlay">
                     <div className="overlay-content">
                       <h2>${price ? price : 56}</h2>
                       <p>{name}</p>
-                      <Link to="#" className="btn btn-default add-to-cart">
+                      <a href="/#" onClick={() => addItem(product)} className="btn btn-default add-to-cart">
                         <i className="fa fa-shopping-cart"></i>Add to cart
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>

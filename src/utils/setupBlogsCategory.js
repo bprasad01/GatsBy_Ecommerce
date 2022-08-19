@@ -1,11 +1,8 @@
-const setupCategories = categories => {
-  console.log(categories);
-
+const setupBlogsCategory = categories => {
     const allCategory = {}
   
     categories.forEach(category => {
-        
-        let newCategory = category.categories
+        let newCategory = category.categories.nodes
         if(newCategory !== null){
             newCategory.forEach(element => {
                 if (allCategory[element.name]) {
@@ -28,4 +25,4 @@ const setupCategories = categories => {
         return newTags
 }
 
-export default setupCategories
+export default setupBlogsCategory

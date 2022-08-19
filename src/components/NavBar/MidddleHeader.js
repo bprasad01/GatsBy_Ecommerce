@@ -1,7 +1,10 @@
 import { Link } from "gatsby"
 import React from "react"
+import { useCart } from "react-use-cart"
 import logo from '../../Assests/images/home/logo.png'
+
 const MidddleHeader = () => {
+  const {totalUniqueItems} = useCart();
   return (
     <>
       <div className="header-middle">
@@ -67,17 +70,17 @@ const MidddleHeader = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/heckout.html">
+                    <Link to="/checkout">
                       <i className="fa fa-crosshairs"></i> Checkout
                     </Link>
                   </li>
                   <li>
                     <Link to="/cart">
-                      <i className="fa fa-shopping-cart"></i> Cart
+                      <i className="fa fa-shopping-cart"></i> Cart<span class="badge">{totalUniqueItems}</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/ogin.html">
+                    <Link to="/login">
                       <i className="fa fa-lock"></i> Login
                     </Link>
                   </li>

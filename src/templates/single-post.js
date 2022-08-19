@@ -2,25 +2,23 @@ import { graphql, Link } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout"
 import moment from "moment"
-import socialImg from '../Assests/images/blog/socials.png'
-import mediaImg from '../Assests/images/blog/man-one.jpg'
-import mediaImg1 from '../Assests/images/blog/man-two.jpg'
-import mediaImg2 from '../Assests/images/blog/man-three.jpg'
-import mediaImg3 from '../Assests/images/blog/man-four.jpg'
+import socialImg from "../Assests/images/blog/socials.png"
+import mediaImg from "../Assests/images/blog/man-one.jpg"
 import Seo from "../components/common/Seo"
-import CategoryList from './../components/Category/CategoryList';
-
+import BlogsCategory from "../components/Category/BlogsCategory"
 
 const SinglePost = ({ data, pageContext }) => {
   const blog = data.wpgraphql.postBy
+  const commentData = blog.comments.nodes
+  const tagsData = blog.tags.nodes
   return (
     <>
       <Layout>
-      <Seo title={pageContext.slug}/>
+        <Seo title={pageContext.slug} />
         <section>
-        <div className="container">
-        <div className="row">
-              <CategoryList />
+          <div className="container">
+            <div className="row">
+              <BlogsCategory />
               <div className="col-sm-9">
                 <div className="blog-post-area">
                   <h2 className="title text-center">Latest From our Blog</h2>
@@ -68,21 +66,16 @@ const SinglePost = ({ data, pageContext }) => {
                   </ul>
                   <ul className="tag">
                     <li>TAG:</li>
-                    <li>
-                      <Link className="color" to="">
-                        Pink <span>/</span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="color" to="">
-                        T-Shirt <span>/</span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="color" to="">
-                        Girls
-                      </Link>
-                    </li>
+                    {tagsData.map(tag => {
+                      const { name, slug } = tag
+                      return(
+                        <li>
+                        <Link className="color" to={`/tags/${slug}`}>
+                          {name} <span>/</span>
+                        </Link>
+                      </li>
+                      )
+                    })}
                   </ul>
                 </div>
                 <div className="socials-share">
@@ -92,11 +85,7 @@ const SinglePost = ({ data, pageContext }) => {
                 </div>
                 <div className="media commnets">
                   <Link className="pull-left" to="#">
-                    <img
-                      className="media-object"
-                      src={mediaImg}
-                      alt="Media"
-                    />
+                    <img className="media-object" src={mediaImg} alt="Media" />
                   </Link>
                   <div className="media-body">
                     <h4 className="media-heading">Annie Davis</h4>
@@ -136,104 +125,42 @@ const SinglePost = ({ data, pageContext }) => {
                   </div>
                 </div>
                 <div className="response-area">
-                  <h2>3 RESPONSES</h2>
+                  <h2>RESPONSES</h2>
                   <ul className="media-list">
-                    <li className="media">
-                      <Link className="pull-left" to="#">
-                        <img
-                          className="media-object"
-                          src={mediaImg1}
-                          alt="Media1"
-                        />
-                      </Link>
-                      <div className="media-body">
-                        <ul className="sinlge-post-meta">
-                          <li>
-                            <i className="fa fa-user"></i>Janis Gallagher
-                          </li>
-                          <li>
-                            <i className="fa fa-clock-o"></i> 1:33 pm
-                          </li>
-                          <li>
-                            <i className="fa fa-calendar"></i> DEC 5, 2013
-                          </li>
-                        </ul>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat.
-                        </p>
-                        <Link className="btn btn-primary" to="">
-                          <i className="fa fa-reply"></i>Replay
-                        </Link>
-                      </div>
-                    </li>
-                    <li className="media second-media">
-                      <Link className="pull-left" to="#">
-                        <img
-                          className="media-object"
-                          src={mediaImg2}
-                          alt="Media"
-                        />
-                      </Link>
-                      <div className="media-body">
-                        <ul className="sinlge-post-meta">
-                          <li>
-                            <i className="fa fa-user"></i>Janis Gallagher
-                          </li>
-                          <li>
-                            <i className="fa fa-clock-o"></i> 1:33 pm
-                          </li>
-                          <li>
-                            <i className="fa fa-calendar"></i> DEC 5, 2013
-                          </li>
-                        </ul>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat.
-                        </p>
-                        <Link className="btn btn-primary" to="">
-                          <i className="fa fa-reply"></i>Replay
-                        </Link>
-                      </div>
-                    </li>
-                    <li className="media">
-                      <Link className="pull-left" to="#">
-                        <img
-                          className="media-object"
-                          src={mediaImg3}
-                          alt="Media3"
-                        />
-                      </Link>
-                      <div className="media-body">
-                        <ul className="sinlge-post-meta">
-                          <li>
-                            <i className="fa fa-user"></i>Janis Gallagher
-                          </li>
-                          <li>
-                            <i className="fa fa-clock-o"></i> 1:33 pm
-                          </li>
-                          <li>
-                            <i className="fa fa-calendar"></i> DEC 5, 2013
-                          </li>
-                        </ul>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat.
-                        </p>
-                        <Link className="btn btn-primary" to="">
-                          <i className="fa fa-reply"></i>Replay
-                        </Link>
-                      </div>
-                    </li>
+                  {commentData.map(item => {
+                    const { author, content, date, id } = item
+                    const { avatar, name} = author.node
+                    return(
+                   <li className="media" key={id}>
+                     <Link className="pull-left" to="#">
+                       <img
+                         className="media-object"
+                         src={avatar.url}
+                         alt="Media1"
+                       />
+                     </Link>
+                     <div className="media-body">
+                       <ul className="sinlge-post-meta">
+                         <li>
+                           <i className="fa fa-user"></i>{name}
+                         </li>
+                         <li>
+                           <i className="fa fa-clock-o"></i> 1:33 pm
+                         </li>
+                         <li>
+                           <i className="fa fa-calendar"></i> {date}
+                         </li>
+                       </ul>
+                       <p>
+                        {content}
+                       </p>
+                       <Link className="btn btn-primary" to="">
+                         <i className="fa fa-reply"></i>Replay
+                       </Link>
+                     </div>
+                   </li>
+                    )
+                  })}
                   </ul>
                 </div>
                 <div className="replay-box">
@@ -245,7 +172,11 @@ const SinglePost = ({ data, pageContext }) => {
                           <label htmlFor="name">Your Name</label>
                         </div>
                         <span>*</span>
-                        <input type="text" name="name" placeholder="write your name..." />
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder="write your name..."
+                        />
                         <div className="blank-arrow">
                           <label htmlFor="email">Email Address</label>
                         </div>
@@ -258,7 +189,11 @@ const SinglePost = ({ data, pageContext }) => {
                         <div className="blank-arrow">
                           <label htmlFor="site">Web Site</label>
                         </div>
-                        <input name="site" type="email" placeholder="current city..." />
+                        <input
+                          name="site"
+                          type="email"
+                          placeholder="current city..."
+                        />
                       </form>
                     </div>
                     <div className="col-sm-8">
@@ -295,9 +230,31 @@ export const query = graphql`
             lastName
           }
         }
+        comments {
+          nodes {
+            content
+            date
+            id
+            author {
+              node {
+                avatar {
+                  url
+                }
+                name
+              }
+            }
+          }
+        }
+        tags {
+          nodes {
+            name
+            slug
+          }
+        }
         title
         date
         content
+        id
         featuredImage {
           node {
             sourceUrl

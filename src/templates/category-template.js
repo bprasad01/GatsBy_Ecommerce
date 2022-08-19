@@ -7,9 +7,7 @@ import ProductList from './../components/Product/ProductList';
 import CategoryList from './../components/Category/CategoryList';
 
 const CategoryTemplate = ({ data, pageContext }) => {
-console.log(data);
 const products = data.allWcProducts.nodes
-console.log(products)
   return (
     <>
     <Layout>

@@ -1,11 +1,11 @@
 import { Link } from "gatsby"
 import React from "react"
 import { useCart } from "react-use-cart"
+import defaultImg from '../Assests/images/furniture.jpg'
 
 const Cart = () => {
-  const { isEmpty, items, cartTotal, updateItemQuantity, removeItem } =
+  const { isEmpty, items, cartTotal, updateItemQuantity, removeItem, } =
     useCart()
-  // console.log(items);
   if (isEmpty) return <h1>Your Cart is Empty</h1>
   return (
     <>
@@ -32,11 +32,16 @@ const Cart = () => {
               </thead>
               <tbody>
                 {items.map(item => {
+                  console.log(item)
+                  let imageData = []
+                  item.images.map(data => {
+                    return imageData = data.src
+                })
                   return (
                     <tr>
                       <td className="cart_product">
                         <Link to="#">
-                          <img src="images/cart/one.png" alt="product" />
+                          <img src={imageData ? imageData : defaultImg} alt="product" />
                         </Link>
                       </td>
                       <td className="cart_description">
@@ -46,7 +51,7 @@ const Cart = () => {
                         <p>Web ID: 1089772</p>
                       </td>
                       <td className="cart_price">
-                        <p>{item.price}</p>
+                        <p>{item.price ? item.price : 56}</p>
                       </td>
                       <td className="cart_quantity">
                         <div className="cart_quantity_button">

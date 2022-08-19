@@ -1,20 +1,15 @@
-import React, { useState } from "react"
 import { Link } from "gatsby"
 import moment from "moment"
+import React from "react"
 import slugify from "slugify"
-import Pagination from "../common/Pagination"
 import BlogsCategory from "../Category/BlogsCategory"
 
-const Posts = ({ blogs = [] }) => {
-  const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage] = useState(3)
+const BlogPost = ({ blogs }) => {
+  let blogData = []
+  blogs.map(item => {
+    return blogData = item.posts.nodes
+  })
 
-  const indexOfLastPost = currentPage * postsPerPage
-  const indexOfFirstPost = indexOfLastPost - postsPerPage
-  const currentPosts = blogs.slice(indexOfFirstPost, indexOfLastPost)
-  const paginate = pageNumber => {
-    setCurrentPage(pageNumber)
-  }
   return (
     <>
       <div className="container">
@@ -23,18 +18,11 @@ const Posts = ({ blogs = [] }) => {
           <div className="col-sm-9">
             <div className="blog-post-area">
               <h2 className="title text-center">Latest From our Blog</h2>
-              {currentPosts.map(blog => {
-                const {
-                  author,
-                  id,
-                  featuredImage,
-                  date,
-                  title,
-                  excerpt,
-                  slug,
-                } = blog
-                const { name } = author.node
-                const { altText, sourceUrl } = featuredImage.node
+              {blogData.map(blog => {
+                console.log(blog)
+                const { author, date, slug, title, featuredImage, excerpt, id } = blog
+                const { sourceUrl, altText} = featuredImage.node
+                const { firstName, lastName } = author.node
                 const slugTitle = slugify(slug, { lower: true })
                 return (
                   <div className="single-blog-post">
@@ -42,7 +30,7 @@ const Posts = ({ blogs = [] }) => {
                     <div className="post-meta">
                       <ul>
                         <li>
-                          <i className="fa fa-user"></i> {name}
+                          <i className="fa fa-user"></i> {firstName + lastName}
                         </li>
                         <li>
                           <i className="fa fa-clock-o"></i> 1:33 pm
@@ -75,13 +63,6 @@ const Posts = ({ blogs = [] }) => {
                   </div>
                 )
               })}
-
-              <Pagination
-                postsPerPage={postsPerPage}
-                totalPosts={blogs.length}
-                paginate={paginate}
-                currentPage={currentPage}
-              />
             </div>
           </div>
         </div>
@@ -90,4 +71,4 @@ const Posts = ({ blogs = [] }) => {
   )
 }
 
-export default Posts
+export default BlogPost

@@ -5,6 +5,7 @@ import defaultImg from "../../Assests/images/furniture.jpg"
 import OwlCarousel from "react-owl-carousel"
 import "owl.carousel/dist/assets/owl.carousel.css"
 import "owl.carousel/dist/assets/owl.theme.default.css"
+import { useCart } from "react-use-cart"
 
 export const query = graphql`
   {
@@ -39,7 +40,7 @@ export const query = graphql`
 const RecomendedItems = () => {
   const data = useStaticQuery(query)
   const products = data.allWcProducts.nodes
-
+  const { addItem } = useCart();
   return (
     <>
       <div className="recommended_items">
@@ -61,20 +62,24 @@ const RecomendedItems = () => {
                   >
             <div className="item">
               {products.map(product => {
-                const { name, price, image, slug, id } = product
+                const { name, price, slug, id } = product
                 const slugTitle = slugify(slug, { lower: true })
+                let imageData = []
+                product.images.map(data => {
+                  return imageData = data.src
+                })
                 return (
-                    <Link key={id} to={`/product/${slugTitle}`}>
+                    <Link key={id} to={`/products/${slugTitle}`}>
                   <div className="col-sm-4">
                     <div className="product-image-wrapper">
                       <div className="single-products">
                         <div className="productinfo text-center">
-                          <img src={image ? image : defaultImg} alt="" />
+                          <img src={imageData ? imageData : defaultImg} alt="" />
                           <h2>${price ? price : 56}</h2>
                           <p>{name}</p>
-                          <Link to="#" className="btn btn-default add-to-cart">
+                          <a href="/#" onClick={() => addItem(product)} className="btn btn-default add-to-cart">
                             <i className="fa fa-shopping-cart"></i>Add to cart
-                          </Link>
+                          </a>
                         </div>
                       </div>
                     </div>

@@ -21,7 +21,7 @@ const ProductList = ({ products = [] }) => {
         const { name, price, image, slug, id } = product
         const slugTitle = slugify(slug, { lower: true })
         return (
-          <Link key={id} to={`/product/${slugTitle}`}>
+          <Link key={id} to={`/products/${slugTitle}`}>
             <div className="col-sm-4">
               <div className="product-image-wrapper">
                 <div className="single-products">
@@ -64,12 +64,6 @@ const ProductList = ({ products = [] }) => {
           </Link>
         )
       })}
-      {/* <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={products.length}
-        paginate={paginate}
-        currentPage={currentPage}
-      /> */}
     </>
   )
 }

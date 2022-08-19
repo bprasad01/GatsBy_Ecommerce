@@ -28,19 +28,48 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const singlePostTemplate = path.resolve(`src/templates/single-post.js`)
   const categoryTemplate = path.resolve(`src/templates/category-template.js`)
+  const categoryBlogTemplate = path.resolve(`src/templates/categoryblog-template.js`)
+  const tagsBlogTemplate = path.resolve(`src/templates/tagblogs-template.js`)
+  const productTemplate = path.resolve(`src/templates/product-template.js`)
 
   const result = await graphql(`
-    query GetSingleBlogPost {
-      wpgraphql {
-        posts {
-          nodes {
-            title
-            slug
+      query GetSingleBlogPost {
+        wpgraphql {
+          posts {
+            nodes {
+              title
+              slug
+            }
           }
+        }
+      },
+  `)
+
+  const resBlog = await graphql(`
+  query GetBlogByCategory{
+    wpgraphql {
+      categories {
+        nodes {
+          name
+          slug
         }
       }
     }
+  }
   `)
+
+  const resTags = await graphql(`
+    query GetBlogByTags {
+    wpgraphql {
+      tags {
+        nodes {
+          slug
+          name
+        }
+      }
+    }
+  }
+`)
 
   const resCategory = await graphql(`
     query {
@@ -73,7 +102,9 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   const blogs = result.data.wpgraphql.posts.nodes
+  const blogsCategory = resBlog.data.wpgraphql.categories.nodes
   const category = resCategory.data.allWcProducts.nodes
+  const tags = resTags.data.wpgraphql.tags.nodes
 
   blogs.forEach(blog => {
     createPage({
@@ -85,6 +116,8 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+
   // Get all categories
   let categories = []
   _.each(category, node => {
@@ -125,6 +158,42 @@ exports.createPages = async ({ graphql, actions }) => {
             })
       })
     }
+  })
+
+  blogsCategory.forEach(blogCategory => {
+    createPage({
+      path: `/blogcategory/${blogCategory.slug}`,
+      component: categoryBlogTemplate,
+      context: {
+        // passing slug for template to use get post
+        slug: blogCategory.slug,
+      },
+    })
+  })
+
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${tag.slug}`,
+      component: tagsBlogTemplate,
+      context: {
+        // passing slug for template to use get post
+        slug: tag.slug,
+      },
+    })
+  })
+
+  product.forEach(item => {
+    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+    console.log(item.slug)
+    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+    createPage({
+      path: `/products/${item.slug}`,
+      component: productTemplate,
+      context: {
+        // passing slug for template to use get post
+        slug: item.slug,
+      },
+    })
   })
 
 }
