@@ -5,6 +5,8 @@ import logo from '../../Assests/images/home/logo.png'
 
 const MidddleHeader = () => {
   const {totalUniqueItems} = useCart();
+  const token = localStorage.getItem('token')
+  console.log(token)
   return (
     <>
       <div className="header-middle">
@@ -80,9 +82,12 @@ const MidddleHeader = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/login">
+                  {!token ? <Link to="/login">
                       <i className="fa fa-lock"></i> Login
-                    </Link>
+                    </Link> :<Link to="/logout">
+                      <i className="fa fa-lock"></i> Logout
+                    </Link>}
+                    
                   </li>
                 </ul>
               </div>
