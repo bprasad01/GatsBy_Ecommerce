@@ -27,15 +27,14 @@ class Login extends Component {
         password : ""
       }
     })
-    console.log(response);
     const userToken = response.data;
     console.log(userToken);
     localStorage.setItem("token", JSON.stringify({
       token: userToken.token
     }))
+    document.cookie = `token=${userToken.token};max-age=604800;`
     this.setState({ login : true })
     navigate('/');
-    console.log(response);
   }
 
   handleSubmit = event => {
