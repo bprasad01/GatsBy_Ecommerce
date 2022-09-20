@@ -1,6 +1,4 @@
 const setupCategories = categories => {
-  console.log(categories);
-
     const allCategory = {}
   
     categories.forEach(category => {

@@ -9,7 +9,7 @@ const Product = ({product}) => {
     const { name, price, stock_status, images } = product
     let imageData = [];
     images.map(imgData => {
-        imageData = imgData
+       return imageData = imgData
     })
     const {addItem} = useCart()
   return (
@@ -22,7 +22,7 @@ const Product = ({product}) => {
                 <div className="product-details">
                   <div className="col-sm-5">
                     <div className="view-product">
-                      <img src={imageData.src ? imageData.src : defaultImg} alt="" />
+                      <img src={imageData.src ? imageData.src : defaultImg} alt="product" />
                       <h3>ZOOM</h3>
                     </div>
                   </div>
@@ -31,22 +31,22 @@ const Product = ({product}) => {
                       <img
                         src="images/product-details/new.jpg"
                         className="newarrival"
-                        alt=""
+                        alt="product"
                       />
                       <h2>{name}</h2>
                       <p>Web ID: 1089772</p>
-                      <img src="images/product-details/rating.png" alt="" />
+                      <img src="images/product-details/rating.png" alt="product" />
                       <span>
                         <span>US ${price ? price : 70}</span>
                         <label htmlFor="quantity">Quantity:</label>
                         <input name="quantity" type="text" value="1" />
-                        <a
+                        <button
                           className="btn btn-fefault cart"
                           onClick={() => addItem(product)}
                         >
                           <i className="fa fa-shopping-cart"></i>
                           Add to cart
-                        </a>
+                        </button>
                       </span>
                       <p>
                         <b>Availability:</b> {stock_status}
@@ -61,7 +61,7 @@ const Product = ({product}) => {
                         <img
                           src="images/product-details/share.png"
                           className="share img-responsive"
-                          alt=""
+                          alt="product"
                         />
                       </Link>
                     </div>
@@ -99,7 +99,7 @@ const Product = ({product}) => {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img src="images/home/gallery1.jpg" alt="" />
+                              <img src="images/home/gallery1.jpg" alt="product" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <button
@@ -117,7 +117,7 @@ const Product = ({product}) => {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img src="images/home/gallery2.jpg" alt="" />
+                              <img src="images/home/gallery2.jpg" alt="product" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <button
@@ -135,7 +135,7 @@ const Product = ({product}) => {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img src="images/home/gallery3.jpg" alt="" />
+                              <img src="images/home/gallery3.jpg" alt="product" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <button
@@ -153,7 +153,7 @@ const Product = ({product}) => {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img src="images/home/gallery4.jpg" alt="" />
+                              <img src="images/home/gallery4.jpg" alt="product" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <button
@@ -174,7 +174,7 @@ const Product = ({product}) => {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img src="images/home/gallery1.jpg" alt="" />
+                              <img src="images/home/gallery1.jpg" alt="product" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <button
@@ -192,7 +192,7 @@ const Product = ({product}) => {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img src="images/home/gallery3.jpg" alt="" />
+                              <img src="images/home/gallery3.jpg" alt="product" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <button
@@ -210,7 +210,7 @@ const Product = ({product}) => {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img src="images/home/gallery2.jpg" alt="" />
+                              <img src="images/home/gallery2.jpg" alt="product" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <button
@@ -228,7 +228,7 @@ const Product = ({product}) => {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img src="images/home/gallery4.jpg" alt="" />
+                              <img src="images/home/gallery4.jpg" alt="product" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <button
@@ -249,7 +249,7 @@ const Product = ({product}) => {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img src="images/home/gallery1.jpg" alt="" />
+                              <img src="images/home/gallery1.jpg" alt="product" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <button
@@ -267,7 +267,7 @@ const Product = ({product}) => {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img src="images/home/gallery2.jpg" alt="" />
+                              <img src="images/home/gallery2.jpg" alt="product" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <button
@@ -285,7 +285,7 @@ const Product = ({product}) => {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img src="images/home/gallery3.jpg" alt="" />
+                              <img src="images/home/gallery3.jpg" alt="product" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <button
@@ -303,7 +303,7 @@ const Product = ({product}) => {
                         <div className="product-image-wrapper">
                           <div className="single-products">
                             <div className="productinfo text-center">
-                              <img src="images/home/gallery4.jpg" alt="" />
+                              <img src="images/home/gallery4.jpg" alt="product" />
                               <h2>$56</h2>
                               <p>Easy Polo Black Edition</p>
                               <button
@@ -358,7 +358,7 @@ const Product = ({product}) => {
                           </span>
                           <textarea name=""></textarea>
                           <b>Rating: </b>{" "}
-                          <img src="images/product-details/rating.png" alt="" />
+                          <img src="images/product-details/rating.png" alt="product" />
                           <button
                             type="button"
                             className="btn btn-default pull-right"

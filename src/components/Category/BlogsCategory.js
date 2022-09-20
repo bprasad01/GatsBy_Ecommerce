@@ -36,7 +36,6 @@ const BlogsCategory = () => {
             {newCategory.map(category => {
               const [text, value] = category
               const slug = slugify(text, { lower: true })
-              const isSelected = true
               return (
                 <div className="panel panel-default">
                   <div className="panel-heading">

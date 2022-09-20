@@ -9,5 +9,5 @@ export function setLogin(user){
     return axios.post(apiEndPoint, {
         username : user.username,
         password : user.password,
-    }, config);
+    }, config,{ withCredentials: true});
 }

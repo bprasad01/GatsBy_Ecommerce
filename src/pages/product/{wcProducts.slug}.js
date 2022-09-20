@@ -45,13 +45,13 @@ const ProductTemplete = ({ data }) => {
                         <span>US ${price ? price : 70}</span>
                         <label htmlFor="quantity">Quantity:</label>
                         <input name="quantity" type="text" value="1" />
-                        <a
+                        <button
                           className="btn btn-fefault cart"
                           onClick={() => addItem(product)}
                         >
                           <i className="fa fa-shopping-cart"></i>
                           Add to cart
-                        </a>
+                        </button>
                       </span>
                       <p>
                         <b>Availability:</b> {stock_status}

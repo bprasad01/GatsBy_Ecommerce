@@ -1,5 +1,4 @@
 import { navigate } from "gatsby"
-import React from "react"
 
 const LogOut = () => {
   const token = localStorage.getItem("token")
