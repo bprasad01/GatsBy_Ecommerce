@@ -78,7 +78,7 @@ const MidddleHeader = () => {
                   </li>
                   <li>
                     <Link to="/cart">
-                      <i className="fa fa-shopping-cart"></i> Cart<span class="badge">{totalUniqueItems}</span>
+                      <i className="fa fa-shopping-cart"></i> Cart<span className="badge">{totalUniqueItems}</span>
                     </Link>
                   </li>
                   <li>

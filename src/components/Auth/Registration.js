@@ -1,5 +1,6 @@
 import React from 'react'
 import Login from './Login'
+// import LoginPage from './LoginPage'
 
 const Registration = () => {
   return (
@@ -8,6 +9,7 @@ const Registration = () => {
 		<div className="container">
 			<div className="row">
 				<Login />
+				{/* <LoginPage /> */}
 				<div className="col-sm-1">
 					<h2 className="or">OR</h2>
 				</div>

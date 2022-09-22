@@ -52,8 +52,8 @@ const BannerCarousel = () => {
                     autoplay={true}
                     nav
                   >
-                    {furnitureCards.map((card, index) => (
-                      <div className="item">
+                    {furnitureCards.map((card) => (
+                      <div className="item" key={card.id}>
                         <div className="col-sm-6">
                           <h1>
                             <span>E</span>-SHOPPER

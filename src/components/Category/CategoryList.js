@@ -39,11 +39,11 @@ const CategoryList = () => {
     <div className="left-sidebar">
         <h2>Category</h2>
         <div className="panel-group category-products" id="accordian">
-            {newCategory.map(category => {
+            {newCategory.map((category, index) => {
                 const [text, value] = category
                 const slug = slugify(text, { lower: true })
                 return(
-                 <div className="panel panel-default">
+                 <div className="panel panel-default" key={index}>
                  <div className="panel-heading">
                      <h4 className="panel-title"><Link to={`/category/${slug}`}>{ text } ({value})</Link></h4>
                  </div>

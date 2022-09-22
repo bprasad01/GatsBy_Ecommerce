@@ -1,12 +1,10 @@
 import React, { Component } from "react"
 import { setLogin } from "../../services/authService"
 import { navigate } from "gatsby"
-// import Cookies from "js-cookie"
 import Cookies from "universal-cookie"
-  const COOKIE_PATH = "/"
-  const COOKIE_DOMAIN = "localhost"
-  const COOKIE_NAME = "myAuthToken"
-  const cookies = new Cookies()
+const COOKIE_PATH = "/"
+const COOKIE_NAME = "myAuthToken"
+const cookies = new Cookies()
 
 class Login extends Component {
   state = {
@@ -17,15 +15,14 @@ class Login extends Component {
       login: "false",
     },
   }
-  
+
   handleChange = ({ currentTarget: input }) => {
     const userData = { ...this.state.userData }
     userData[input.name] = input.value
     this.setState({ userData })
   }
 
-  doSubmit = async props => {
-    // console.log(props)
+  doSubmit = async () => {
     const response = await setLogin(this.state.userData)
     this.setState({
       userData: {
@@ -34,27 +31,20 @@ class Login extends Component {
       },
     })
     const userToken = response.data
-    const token = userToken.token;
-    console.log(userToken)
+    const token = userToken.token
     localStorage.setItem(
       "token",
       JSON.stringify({
-        token: token
+        token: token,
       })
     )
-    cookies.set(COOKIE_NAME, token, {path: COOKIE_PATH,domain: COOKIE_DOMAIN})
-    
-    // document.cookie = `token=${userToken.token};max-age=604800;`
-    // var domainName = window.location.hostname;
-    // let newDomainName = "example.com"
-    // document.cookie =  `token=${userToken.token};max-age=604800; path=/; domain=. + ${domainName}; secure;`
-    // console.log(domainName)
-    // Cookies.set("cookieToken", userToken.token, {
-    //   domain: "localhost",
-    //   sameSite: "Lax",
-    // })
-    // const tkn = Cookies.get("cookieToken")
-    // console.log(tkn)
+      
+    // using universal-cookie package
+    var domainName = window.location.hostname;
+    cookies.set(COOKIE_NAME, token,{path : COOKIE_PATH, domain : domainName})
+    const getCookieName = cookies.get(COOKIE_NAME);
+    console.log(getCookieName);
+   
     this.setState({ login: true })
     navigate("/")
   }

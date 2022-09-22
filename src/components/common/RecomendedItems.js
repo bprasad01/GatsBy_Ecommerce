@@ -77,9 +77,9 @@ const RecomendedItems = () => {
                           <img src={imageData ? imageData : defaultImg} alt="" />
                           <h2>${price ? price : 56}</h2>
                           <p>{name}</p>
-                          <a href="/#" onClick={() => addItem(product)} className="btn btn-default add-to-cart">
+                          <button href="/#" onClick={() => addItem(product)} className="btn btn-default add-to-cart">
                             <i className="fa fa-shopping-cart"></i>Add to cart
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>

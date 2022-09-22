@@ -44,10 +44,10 @@ const FeaturedItems = () => {
       <div className="features_items">
         <h2 className="title text-center">Features Items</h2>
         {products.map(product => {
-          const { name, price, image, slug } = product
+          const { name, price, image, slug, id } = product
           const slugTitle = slugify(slug, { lower: true })
           return (
-            <div className="col-sm-4">
+            <div className="col-sm-4" key={id}>
               <div className="product-image-wrapper">
                 <Link to={`/products/${slugTitle}`}>
                 <div className="single-products">
@@ -55,17 +55,17 @@ const FeaturedItems = () => {
                     <img src={image ? image : defaultImg} alt="" />
                     <h2>${price ? price : 56}</h2>
                     <p>{name}</p>
-                    <a href="/#" onClick={() => addItem(product)} className="btn btn-default add-to-cart">
+                    <button href="/#" onClick={() => addItem(product)} className="btn btn-default add-to-cart">
                       <i className="fa fa-shopping-cart"></i>Add to cart
-                    </a>
+                    </button>
                   </div>
                   <div className="product-overlay">
                     <div className="overlay-content">
                       <h2>${price ? price : 56}</h2>
                       <p>{name}</p>
-                      <a href="/#" onClick={() => addItem(product)} className="btn btn-default add-to-cart">
+                      <button href="/#" onClick={() => addItem(product)} className="btn btn-default add-to-cart">
                         <i className="fa fa-shopping-cart"></i>Add to cart
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
